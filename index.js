@@ -20,9 +20,10 @@ const getWalletBalance = async () => {
         const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
         const myWallet = await Keypair.fromSecretKey(privKey);
         const walletBalance = await connection.getBalance(new PublicKey(myWallet.publicKey));
+        const myWalletBalance = walletBalance / 1000000000;
         const myWalletAddress = myWallet.publicKey.toString();
 
-        console.log(`Wallet address is ${myWalletAddress} and balance is ${walletBalance}`);
+        console.log(`Wallet address is ${myWalletAddress} and balance is ${myWalletBalance} SOL`);
     } catch (err) {
         console.log(err);
     }
@@ -46,8 +47,11 @@ const requestAirdrop = async () => {
 }
 
 const main = async () => {
+    console.log("Before Airdrop:");
     await getWalletBalance();
     await requestAirdrop();
+
+    console.log("After Airdrop:");
     await getWalletBalance();
 }
 
