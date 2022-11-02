@@ -8,3 +8,6 @@ Just like web3.js has libraries, classes, and functions for us to explore, so do
 
 - [x] [Retriving Tokens and Balances](./getTokens.js)
 In this javascript code, we'll get to know the token addresses of user or owner holding tokens and even we get to know how much balance the owner is holding for each token.
+
+- [x] [Transactions on Solana](./sendTransactions.js)
+Creating a Solana transaction object, and then sending that transaction object to the blockchain
